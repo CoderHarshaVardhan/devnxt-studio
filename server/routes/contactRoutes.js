@@ -11,7 +11,10 @@ router.post('/', async (req, res) => {
 
     // Basic validation
     if (!name || !email || !phone) {
-      return res.status(400).json({ message: 'Please provide all fields' });
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide all fields'
+      });
     }
 
     const newUser = new User({
@@ -20,17 +23,25 @@ router.post('/', async (req, res) => {
       phone
     });
 
-    await newUser.save();
+    // Persist data
+    const savedUser = await newUser.save();
 
-    res.status(201).json({ 
+    // Explicit return to stop execution
+    return res.status(201).json({
       success: true,
-      message: 'Contact information saved successfully' 
+      message: 'Contact information saved successfully',
+      id: savedUser._id
     });
+
   } catch (error) {
     console.error('Contact error:', error);
-    res.status(500).json({ 
+
+    // Prevent duplicate response send
+    if (res.headersSent) return;
+
+    return res.status(500).json({
       success: false,
-      message: 'Server error, please try again later' 
+      message: 'Server error, please try again later'
     });
   }
 });
