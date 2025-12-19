@@ -35,7 +35,7 @@ function Home() {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://devnxt-studio.onrender.com//api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
