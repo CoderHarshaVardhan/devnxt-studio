@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Search, Palette, Code, ShieldCheck, RefreshCw, Globe, Laptop, PenTool, Smartphone, Wrench, Cloud, Database, Cpu, Layout, X, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
+import { Search, Palette, Code, ShieldCheck, RefreshCw, Globe, Laptop, PenTool, Smartphone, Wrench, Cloud, Database, Cpu, Layout, X, Menu, Mail, Phone, MapPin, Linkedin, Github, Twitter, Instagram } from 'lucide-react';
 import './Home.css'
 
 function Home() {
   const [showModal, setShowModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,7 +27,12 @@ function Home() {
   const toggleModal = (e) => {
     if (e) e.preventDefault();
     setShowModal(!showModal);
+    setIsMenuOpen(false); // Close mobile menu when opening modal
     setStatus({ type: '', message: '' });
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleSubmit = async (e) => {
@@ -133,14 +139,17 @@ function Home() {
               <img src="/devnxt-tab-logo.png" alt="DevNxt Studio" className="logo-icon" />
               <span className="logo-text">DevNxt Studio</span>
             </a>
-            <div className="navbar-links">
-              <a href="#home">Home</a>
-              <a href="#services">Services</a>
-              <a href="#about">About Us</a>
-              <a href="#career">Career</a>
-              <a href="#blog">Blog</a>
+            <div className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
+              <a href="#home" onClick={() => setIsMenuOpen(false)}>Home</a>
+              <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+              <a href="#about" onClick={() => setIsMenuOpen(false)}>About Us</a>
+              <a href="#career" onClick={() => setIsMenuOpen(false)}>Career</a>
+              <a href="#blog" onClick={() => setIsMenuOpen(false)}>Blog</a>
               <button onClick={toggleModal} className="btn btn-primary">Contact</button>
             </div>
+            <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle navigation">
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
         </div>
       </nav>
@@ -719,8 +728,8 @@ function Home() {
             
             <div className="footer-section footer-contact">
               <h4>Get in Touch</h4>
-              <p><Mail size={16} className="footer-icon" /> narojuharsha2004@gmail.com</p>
-              <p><Phone size={16} className="footer-icon" /> +91 8179808340</p>
+              <p><Mail size={16} className="footer-icon" /> narojuharsha@gmail.com</p>
+              <p><Phone size={16} className="footer-icon" /> +91 8179808340 </p>
               <p><MapPin size={16} className="footer-icon" /> Hyderabad, Telangana</p>
             </div>
           </div>
