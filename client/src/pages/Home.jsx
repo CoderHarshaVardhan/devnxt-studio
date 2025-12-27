@@ -728,7 +728,7 @@ function Home() {
             
             <div className="footer-section footer-contact">
               <h4>Get in Touch</h4>
-              <p><Mail size={16} className="footer-icon" /> narojuharsha@gmail.com</p>
+              <p><Mail size={16} className="footer-icon" /> DevNxtStudio@gmail.com</p>
               <p><Phone size={16} className="footer-icon" /> +91 8179808340 </p>
               <p><MapPin size={16} className="footer-icon" /> Hyderabad, Telangana</p>
             </div>
