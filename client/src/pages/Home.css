@@ -137,6 +137,12 @@ body {
   position: relative;
 }
 
+.app-layout-container {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -2860,14 +2866,22 @@ p {
     align-items: center;
     gap: var(--space-6);
     padding: var(--space-20) var(--space-8);
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
     z-index: var(--z-fixed);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .navbar-links.active {
     right: 0;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .floating-widget {
+    display: none;
   }
 
   .navbar-links a {

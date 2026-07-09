@@ -83,7 +83,7 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div className="app-layout-container">
       {/* Decorative ambient blurred glow blobs */}
       <div className="glow-blob blob-1"></div>
       <div className="glow-blob blob-2"></div>
@@ -106,7 +106,7 @@ function Home() {
       <Footer toggleModal={toggleModal} />
 
       {showModal && <ContactModal toggleModal={toggleModal} />}
-    </>
+    </div>
   );
 }
 
