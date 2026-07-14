@@ -21,7 +21,7 @@ function Footer({ toggleModal }) {
               <a href="#home" className="social-link" aria-label="Instagram"><Instagram size={20} /></a>
             </div>
           </div>
-          
+
           <div className="footer-section">
             <h4>Quick Links</h4>
             <div className="footer-links">
@@ -31,7 +31,7 @@ function Footer({ toggleModal }) {
               <button onClick={toggleModal} style={{ textAlign: 'left', background: 'none', border: 'none', padding: '0', color: 'inherit', cursor: 'pointer' }}>Contact</button>
             </div>
           </div>
-          
+
           <div className="footer-section">
             <h4>Services</h4>
             <div className="footer-links">
@@ -41,15 +41,15 @@ function Footer({ toggleModal }) {
               <a href="#services">Cloud Solutions</a>
             </div>
           </div>
-          
+
           <div className="footer-section footer-contact">
             <h4>Get in Touch</h4>
-            <p><Mail size={16} className="footer-icon" /> narojuharsha@gmail.com</p>
-            <p><Phone size={16} className="footer-icon" /> +91 8179808340 </p>
+            <p><Mail size={16} className="footer-icon" /> poojithap410@gmail.com</p>
+            <p><Phone size={16} className="footer-icon" /> +91 8367422982 </p>
             <p><MapPin size={16} className="footer-icon" /> Hyderabad, Telangana</p>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <p>&copy; 2026 DevNxt Studio. All rights reserved.</p>
         </div>
